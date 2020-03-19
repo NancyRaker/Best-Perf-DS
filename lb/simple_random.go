@@ -7,6 +7,6 @@ func newSimpleRandom() *simpleRandom {
 }
 
 // 简单随机
-func (sr *simpleRandom) GetServer() string {
+func (sr *simpleRandom) GetServer(opt ...string) string {
 	return ips[getRandom(len(ips))]
 }

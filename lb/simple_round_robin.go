@@ -9,7 +9,7 @@ func newSimleRoundRobin() *simpleRoundRobin {
 }
 
 // 简单轮询
-func (srr *simpleRoundRobin) GetServer() string {
+func (srr *simpleRoundRobin) GetServer(opt ...string) string {
 	var res string
 
 	if srr.roundRobinPos >= len(ips) {

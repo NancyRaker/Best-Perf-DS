@@ -7,7 +7,7 @@ func newWeightRandom() *weightRandom {
 	return &weightRandom{}
 }
 
-func (wr *weightRandom) GetServer() string {
+func (wr *weightRandom) GetServer(opt ...string) string {
 	// 1. calc total weight
 	var totalWeight int
 	for _, value := range ipsMaps {

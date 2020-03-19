@@ -17,7 +17,7 @@ func TestLoadBalance_GetServer(t *testing.T) {
 
 	var resCount = []int{0,0,0}
 	for i := 0; i < 128; i++ {
-		ip := loadBalance.GetServer(WEIGHT_ROUND_ROBIN)
+		ip := loadBalance.GetServer(WEIGHT_ROUND_ROBIN, "")
 		if ip == "192.168.10.1:2202" {
 			resCount[0]++
 		}else if ip == "192.168.10.2:2202" {
@@ -28,4 +28,8 @@ func TestLoadBalance_GetServer(t *testing.T) {
 	}
 
 	t.Logf("weight round robin res: %+v", resCount)
+
+	t.Logf("source hash res: %+v", loadBalance.GetServer(SOURCE_HASH, "127.0.0.1"))
+	t.Logf("source hash res: %+v", loadBalance.GetServer(SOURCE_HASH, "127.0.0.1"))
+	t.Logf("source hash res: %+v", loadBalance.GetServer(SOURCE_HASH, "127.0.0.1"))
 }

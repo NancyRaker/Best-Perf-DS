@@ -30,7 +30,7 @@ func newWeightRoundRobin(ips []string, weights []int) (*weightRoundRobin, error)
 }
 
 // 平滑加权轮询 实现LoadBalance接口
-func (wrr *weightRoundRobin) GetServer() string {
+func (wrr *weightRoundRobin) GetServer(opt ...string) string {
 	// 返回 maxPos上的ip
 	var res = wrr.ips[wrr.maxPos]
 

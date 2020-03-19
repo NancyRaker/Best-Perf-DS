@@ -1,7 +1,7 @@
 package lb
 
 type LoadBalanceStrategy interface {
-	GetServer() string
+	GetServer(... string) string
 }
 
 type loadBalance struct {
@@ -9,14 +9,15 @@ type loadBalance struct {
 	weightRandom     LoadBalanceStrategy
 	simpleRoundRobin LoadBalanceStrategy
 	weightRoundRobin LoadBalanceStrategy
+	sourceHash       LoadBalanceStrategy
 }
 
 const (
 	SIMPLE_RANDOM      = 1
 	WEIGHT_RANDOM      = 2
-
 	SIMPLE_ROUND_ROBIN = 3
 	WEIGHT_ROUND_ROBIN = 4
+	SOURCE_HASH        = 5
 )
 
 var ips = []string{
@@ -54,10 +55,11 @@ func NewLoadBalance(ips []string, weights []int) *loadBalance {
 		weightRandom:     newWeightRandom(),
 		simpleRoundRobin: newSimleRoundRobin(),
 		weightRoundRobin: wrr,
+		sourceHash:       newSourceHash(ips),
 	}
 }
 
-func (lb *loadBalance) GetServer(strategy int) string {
+func (lb *loadBalance) GetServer(strategy int, opt string) string {
 	var res string
 	switch strategy {
 	case SIMPLE_RANDOM:
@@ -68,6 +70,8 @@ func (lb *loadBalance) GetServer(strategy int) string {
 		res = lb.simpleRoundRobin.GetServer()
 	case WEIGHT_ROUND_ROBIN:
 		res = lb.weightRoundRobin.GetServer()
+	case SOURCE_HASH:
+		res = lb.sourceHash.GetServer(opt)
 	}
 	return res
 }
