@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package talk_cloud;
+
+import "talk_cloud_model.proto"; // 一些公用的model
+
+service ApkUpdateService {
+    // 更改apk的url和版本号
+    rpc UpdateApkInfo (apkUpdateInfo) returns (Result) {
+    };
+}
+
+message apkUpdateInfo {
+    string pathUrl = 1;
+    int32 versionId = 2;
+}

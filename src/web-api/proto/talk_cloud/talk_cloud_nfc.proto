@@ -1,0 +1,336 @@
+syntax = "proto3";
+
+package talk_cloud;
+
+import "talk_cloud_model.proto"; // 一些公用的model
+
+service NFCService {
+    /*************************************** NFC start **************************************/
+    // 保存tag信息, 增加、删除tag
+    rpc PostTagsInfo (TagsInfoReq) returns (TagsInfoResp) {
+    };
+
+    // 查询tag信息
+    rpc GetTagsInfo (GetTagsInfoReq) returns (GetTagsInfoResp) {
+    };
+
+    // 保存tag task信息, 增加、删除tag task
+    rpc PostTagTasksList (TagTasksListReq) returns (TagTasksListResp) {
+    };
+
+    // 查询所有的tag task信息
+    rpc GetTagTasksList (GetTagTasksListReq) returns (GetTagTasksListResp) {
+    };
+
+    // 单个设备查询应该执行的任务信息
+    rpc QueryTasksByDevice (DeviceTasksReq) returns (DeviceTasksResp) {
+    };
+
+    // 任务详细信息查询
+    rpc QueryTaskDetail (TaskDetailReq) returns (TaskDetailResp) {
+    };
+
+    // 调度员设置日报月报邮箱和发送时间
+    rpc SetReportInfo (reportInfoReq) returns (reportInfoResp) {
+    };
+
+    // 查询调度员设置邮箱信息
+    rpc QueryReportInfo (ReportSetInfoReq) returns (ReportSetInfoResp) {
+    };
+
+    // 设备打卡
+    rpc DeviceClockReport (ClockDataReq) returns (ClockDataResp) {
+    };
+
+    // 调度员查询设备打卡情况
+    rpc DeviceClockStatus (ClockStatusReq) returns (ClockStatusResp) {
+    };
+    /*************************************** NFC end **************************************/
+}
+
+/************************** NFC tag start ***************************/
+// 查询某个调度员名下的tag信息请求数据
+message GetTagsInfoReq {
+    // 调度员的Id
+    int32 accountId = 1;
+}
+
+// 查询Tags信息返回的数据
+message GetTagsInfoResp {
+    // 查询调度员名下所有的Tags信息
+    repeated Tag tags = 1;
+}
+
+// 操作Tags信息的请求数据
+message TagsInfoReq {
+    // 需要保存、修改或删除的Tags信息的数据
+    repeated Tag tags = 1;
+
+    // 调用这个方法的目的是对Tags信息数据进行保存、修改或删除作说明。1 保存， 2 修改， 3 删除
+    int32 ops = 2;
+
+    // 调度员的id
+    int32 account_id = 3;
+}
+
+// 操作Tags信息的返回数据
+message TagsInfoResp {
+    Result Res = 1;
+}
+
+// tag数据模型
+message Tag {
+    // 标签tag的id
+    int32 id = 1;
+
+    // 标签名字
+    string tag_name = 2;
+
+    // 标签的地址
+    string tag_addr = 3;
+
+    // 标签导入的调度员
+    int32 account_id = 4;
+
+    // 标签插入数据库的创建时间
+    string create_timestamp = 5;
+
+    // 标签导入的时间
+    uint64 import_timestamp = 6;
+
+    //uuid
+    string uuid = 7;
+}
+/**************************** NFC tag end ****************************/
+
+/************************* NFC tag task start ************************/
+// 查询某个调度员名下的tag信息请求数据
+message GetTagTasksListReq {
+    // 调度员的Id
+    int32 accountId = 1;
+}
+
+// 查询Tags信息返回的数据
+message GetTagTasksListResp {
+    // 查询调度员名下所有的Tags信息
+    //    repeated Tag tags = 1;
+}
+
+// 操作Tag Tasks List信息的请求数据
+message TagTasksListReq {
+    // 需要保存、修改或删除的Tags信息的数据
+    repeated TagTaskListNode tag_task_lists = 1;
+
+    // 调用这个方法的目的是对Tag Tasks List信息数据进行保存、修改或删除作说明。1 保存， 2 修改， 3 删除
+    int32 ops = 2;
+
+    // 调度员的id
+    int32 account_id = 3;
+}
+
+// 操作Tags信息的返回数据
+message TagTasksListResp {
+    Result Res = 1;
+}
+
+message TagTaskListNode {
+    // task的id
+    int64 tag_task_id = 1;
+
+    // 该任务应该打卡的打卡节点
+    repeated TagTaskNode tag_task_nodes = 2;
+
+    // 调度员id
+    int32 account_id = 3;
+
+    // 发送该任务的邮箱
+    string send_email = 4;
+
+    // 发送该任务的时间
+    uint64 send_time = 5;
+
+    // 任务名称
+    string task_name = 6;
+
+    // 任务时区
+    string time_zone = 7;
+
+    // 任务保存时间
+    int64 save_time = 8;
+}
+
+// 标签打卡任务节点
+message TagTaskNode {
+    // 打卡任务中某个打卡点的id
+    int32 id = 1;
+
+    // 调度员id
+    int32 account_id = 2;
+
+    // 打卡设备的id
+    int32 device_id = 3;
+
+    // 标签tag的id
+    int32 tag_id = 4;
+
+    // 预定打卡起始的的时间戳
+    uint64 order_start_time = 5;
+
+    // 预定打卡的结束时间戳
+    uint64 order_end_time = 6;
+
+    // 是否已经打卡
+    int32 is_clock = 7;
+
+    // 如果已经打卡，这就是打卡的时间戳
+    uint64 clock_time = 8;
+
+    // 任务节点下发的时间
+    string create_time = 9;
+
+    // 标签名字
+    string tag_name = 10;
+}
+
+// 设备任务查询
+message DeviceTasksReq {
+    // 调度员id
+    int32 account_id = 1;
+
+    // 设备id
+    int32 device_id = 2;
+}
+
+// 设备任务查询返回的内容
+message DeviceTasksResp {
+    repeated DeviceTaskNode single_device_task_list = 1;
+}
+
+// 设备应该执行的任务节点
+message DeviceTaskNode {
+    // 任务id
+    int64 tag_task_id = 1;
+
+    // 任务名字
+    string task_name = 2;
+
+    // 任务保存时间
+    int64 save_time = 3;
+
+    // 设备在该任务中应该打卡的标签点
+    repeated string tag_list = 4;
+}
+
+// 单个任务的查询
+message TaskDetailReq {
+    // 调度员id
+    int32 account_id = 1;
+
+    // 任务id
+    int32 task_id = 2;
+}
+
+// 查询任务细节结构体
+message TaskDetailResp {
+    TaskDetail task_detail = 1;
+}
+
+// 任务细节
+message TaskDetail {
+    repeated TagNode tag_nodes = 1;
+}
+
+// 标签节点
+message TagNode {
+    // 标签的id
+    int32 id = 1;
+
+    // 标签的名字
+    string tag_name = 2;
+
+    // 标签打卡的起始时间时间戳
+    uint64 order_start_time = 3;
+
+    // 标签打卡的结束时间的时间戳
+    uint64 order_end_time = 4;
+}
+
+/************************** NFC tag task end *************************/
+
+/************************** NFC report start *************************/
+// 设置月报日报相关信息的请求
+message reportInfoReq {
+    // 请求的操作 1 是增加 2是修改 3是删除
+    int32 ops = 1;
+
+    ReportSetDetail detail_param = 2;
+}
+
+message ReportSetDetail {
+    // 调度员id
+    int32 account_id = 1;
+
+    // 发送报告的邮箱
+    string report_email = 2;
+
+    // 月报发送的时间
+    string month_time = 3;
+
+    // 日报发送的时间
+    string day_time = 4;
+}
+
+message reportInfoResp {
+    Result res = 1;
+}
+
+message ReportSetInfoReq {
+    int32 account_id = 1;
+}
+
+message ReportSetInfoResp {
+    // 设置的详情
+    ReportSetDetail detail = 1;
+}
+/************************** NFC report end *************************/
+
+/********************** NFC device clock start *********************/
+
+// 设备打卡的请求
+message ClockDataReq {
+    // 设备id
+    int32 device_id = 1;
+
+    // 标签id
+    int32 tag_id = 2;
+
+    // 打卡的时间戳
+    uint64 clock_time = 3;
+
+    // 打卡的时区
+    string time_zone = 4;
+}
+
+// 设备打卡的响应
+message ClockDataResp {
+    Result res = 1;
+}
+
+// 查询设备打卡情况的参数
+message ClockStatusReq {
+    // 调度员id
+    int32 account_id = 1;
+
+    // 设备id
+    int32 device_id = 2;
+
+    // 查询起始时间戳
+    uint64 start_timestamp = 3;
+
+}
+
+// 查询设备打卡情况的返回
+message ClockStatusResp {
+
+}
+/********************** NFC device clock end **********************/

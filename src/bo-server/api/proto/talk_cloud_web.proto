@@ -1,0 +1,350 @@
+syntax = "proto3";
+
+package talk_cloud;
+
+import "talk_cloud_model.proto"; // 一些公用的model
+
+service WebService {
+    rpc WebCreateGroup (WebCreateGroupReq) returns (GroupInfo) {
+    };
+    // 更新群成员
+    rpc UpdateGroup (UpdateGroupReq) returns (UpdateGroupResp) {
+    };
+
+    // 更新群组信息
+    rpc UpdateGroupInfo (GroupInfo) returns (Result) {
+    };
+
+    // 删除群组
+    rpc DeleteGroup (GroupDelReq) returns (GroupDelRsp) { // 返回的消息暂定
+    };
+
+    // 超级管理员导入设备
+    rpc ImportDeviceByRoot (ImportDeviceReq) returns (ImportDeviceResp) {
+    };
+
+    // 更新设备信息
+    rpc UpdateDeviceInfo (UpdDInfoReq) returns (UpdDInfoResp) {
+    };
+
+    // 通过IMEI号获取id，用于查重
+    rpc SelectDeviceByImei (ImeiReq) returns (ImeiResp) {
+    };
+
+    // 获取设备位置等信息
+    rpc GetDevicesInfo (DeviceInfosReq) returns (DeviceInfosResp) {
+    };
+
+    // 删除没有设备的节点账户
+    rpc DeleteAccount (DeleteAccountReq) returns (DeleteAccountResp) {
+    };
+
+    // 更改群管理员
+    rpc UpdateGroupManager (UpdGManagerReq) returns (UpdGManagerResp) {
+    };
+
+    // 保存wifi信息, 增加、删除wifi
+    rpc PostWifiInfo (WifiInfoReq) returns (WifiInfoResp) {
+    };
+
+    // 查询wifi信息
+    rpc GetWifiInfo (GetWifiInfoReq) returns (GetWifiInfoResp) {
+    };
+
+    // 查询日志信息
+    rpc GetDeviceLogInfo (GetDeviceLogInfoReq) returns (GetDeviceLogInfoResp) {
+    };
+
+    // 获取某个设备某一段时间的经纬度
+    rpc GetGpsForTrace (GpsForTraceReq) returns (GpsForTraceResp) {
+    };
+
+    // 批量转移设备
+    rpc MultiTransDevice (TransDevices) returns (Result) {
+    };
+
+    // 更改数据库连接
+    rpc ChangeDBEngine (Empty) returns (Result) {
+    };
+
+    // 创建下级用户
+    rpc CreateAccount (CreateAccountReq) returns(CreateAccountResp){};
+}
+
+
+message CreateAccountReq {
+    string ConfirmPwd = 1;
+    int32 Id = 2;
+    int32 Pid = 3;
+    string Username = 4;
+    string NickName = 5;
+    string Pwd = 6;
+    string Email = 7;
+    int32 PrivilegeId = 8;
+    string Contact = 9;
+    int32 RoleId = 10;
+    string State = 11;
+    string LlTime = 12;
+    string ChangeTime = 13;
+    string CTime = 14;
+    string Phone = 15;
+    string Remark = 16;
+    string Address = 17;
+}
+
+message CreateAccountResp {
+    int32 id = 1;
+}
+
+message Empty {
+}
+
+// 转移设备的请求数据
+message TransDevices {
+    // 需要转移的设备
+    repeated string imeis = 1;
+
+    // 接收设备的Id
+    int32 receiver_id = 2;
+
+    // 设备原来的Id
+    int32 sender_id = 3;
+}
+
+// web创建组请求数据
+message WebCreateGroupReq {
+    repeated int32 device_ids = 1;
+    Group group_info = 2;
+}
+
+
+message WebCreateGroupResp {
+    int32 gid = 1;
+}
+
+// 获取某个设备某一段时间的经纬度， 需要两个参数：设备id，然后是开始的时间
+message GpsForTraceReq {
+    // 获取轨迹回放数据的设备的Id
+    string id = 1;
+
+    // 获取轨迹回放数据的起始时间戳
+    string timesStampStart = 2;
+
+    // 获取轨迹回放数据的结束时间的时间戳
+    string timesStampEnd = 3;
+}
+
+// 轨迹回放调用返回的数据
+message GpsForTraceResp {
+    // 轨迹回放返回的数据
+    repeated TraceInfo traceData = 1;
+
+    // 从startTimestamp到endTimestamp之间的数据如果大于limit（暂时定为1000），就为false。
+    bool whole = 2;
+}
+
+// 轨迹回放单个数据单元的数据结构
+message TraceInfo {
+    // 经度
+    string lng = 1;
+
+    // 纬度
+    string lat = 2;
+
+    // 该数据单元的时间戳
+    string timestamp = 3;
+}
+
+// 查询设备日志信息请求的信息
+message GetDeviceLogInfoReq {
+    // 要查询日志的设备的Id
+    int32 uid = 1;
+}
+
+// 查询设备日志信息返回的数据
+message GetDeviceLogInfoResp {
+    string logUrl = 1;
+}
+
+// 查询某个调度员名下的wifi信息请求数据
+message GetWifiInfoReq {
+    // 调度员的Id
+    int32 accountId = 1;
+}
+
+// 查询wifi信息返回的数据
+message GetWifiInfoResp {
+    // 查询调度员名下所有的wifi信息
+    repeated Wifi wifis = 1;
+}
+
+// 操作wifi信息的请求数据
+message WifiInfoReq {
+    // 需要保存、修改或删除的wifi信息的数据
+    repeated Wifi wifis = 1;
+
+    // 调用这个方法的目的是对wifi信息数据进行保存、修改或删除作说明。1 保存， 2 修改， 3 删除
+    int32 ops = 2;
+
+    // 调度员的id
+    int32 accountId = 3;
+}
+
+// 操作wifi信息的返回数据
+message WifiInfoResp {
+    Result Res = 1;
+}
+
+// 更新群管理员请求
+message UpdGManagerReq {
+    // 群组的Id
+    int32 GId = 1;
+
+    // 要更改群内的成员的id
+    repeated int32 UId = 2;
+
+    // 调度员的id
+    int32 AccountId = 3;
+
+    // RoleType 只能为1或者2， 2是指定为管理员，1是指定为普通成员
+    int32 RoleType = 4;
+}
+
+// 更新群管理员返回的数据
+message UpdGManagerResp {
+    // 更新群管理员返回的消息内容
+    Result Res = 1;
+}
+
+// 删除没有设备和下级的节点账户的请求数据
+message DeleteAccountReq {
+    // 要删除账户的id
+    int32 id = 1;
+}
+
+// 删除没有设备和下级的节点账户的返回数据
+message DeleteAccountResp {
+    // 删除没有设备和下级的节点账户的处理结果
+    Result Res = 1;
+}
+
+// web定时获取该调度员下的设备的位置信息，用于地图展示的请求数据
+message DeviceInfosReq {
+    // 需要获取位置信息的设备的id切片
+    repeated int32 DevicesIds = 1;
+}
+
+// web定时获取该调度员下的设备的位置信息，用于地图展示的返回数据
+message DeviceInfosResp {
+    // 设备信息
+    repeated DeviceInfo Devices = 1;
+
+    // 请求处理结果
+    Result Res = 2;
+}
+
+// 通过Imei号获取设备Id的请求数据
+message ImeiReq {
+    // 设备的Imei
+    string Imei = 1;
+}
+
+// 通过Imei号获取设备Id的返回数据
+message ImeiResp {
+    // 设备Id
+    int32 id = 1;
+
+    // 请求处理结果
+    Result Res = 2;
+}
+
+// 更新设备信息的请求数据
+message UpdDInfoReq {
+    // 需要更新设备的设备信息
+    DeviceUpdate deviceInfo = 1;
+}
+
+// 更新设备信息的返回数据
+message UpdDInfoResp {
+    // 请求处理的结果
+    Result res = 1;
+}
+
+// 更新群组成员的请求数据
+message UpdateGroupReq {
+    // 增加群成员的Id
+    repeated int32 addDeviceInfos = 1;
+
+    // 移除群成员的Id
+    repeated int32 removeDeviceInfos = 2;
+
+    // 操作当前群组的群组信息
+    Group groupInfo = 3;
+}
+
+// 更新群组成员的请求数据
+message UpdateGroupResp {
+    // 请求处理结果
+    Result resultMsg = 1;
+}
+
+// 删除群组的返回数据
+message DeleteGroupResp {
+    // 请求处理结果
+    Result resultMsg = 1;
+}
+
+// 导入设备的请求数据
+message ImportDeviceReq {
+    // 超级管理员的Id // 其实默认是1
+    int32 accountId = 1;
+
+    // 要导入的设备信息
+    repeated DeviceInfo Devices = 2;
+}
+
+// 导入设备返回的数据
+message ImportDeviceResp {
+    // 请求处理结果
+    Result result = 1;
+}
+
+// 更新设备的请求数据
+message DeviceUpdate {
+    // 设备Id
+    int32 id = 1;
+
+    // 设备Imei号
+    string imei = 2;
+
+    // 设备昵称
+    string nick_name = 3;
+
+    // 调度员或者经销商Id
+    int32 login_id = 4;
+
+    // 创建时间
+    string create_time = 6;
+
+    // 最后一次登录的时间
+    string ll_time = 7;
+
+    // 修改设备的时间
+    string change_time = 8;
+
+    // GPS的上传时间
+    uint64 local_time = 9;
+
+    // 设备型号
+    string device_type = 12;
+
+    // 设备激活时间
+    string active_time = 13;
+
+    // 设备销售时间
+    string sale_time = 14;
+
+    // 是否开启日志
+    string start_log = 15;
+}
+

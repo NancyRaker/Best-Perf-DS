@@ -1,0 +1,863 @@
+{
+    "uid": 24,
+    "group_list": [
+        {
+            "gid": 2554,
+            "group_name": "sunshine",
+            "group_owner": 95,
+            "user_list": [
+                {
+                    "id": 23,
+                    "imei": "352056090286044",
+                    "course": 278.06,
+                    "local_time": 1574760953,
+                    "longitude": 113.916625,
+                    "device_type": "JW10",
+                    "latitude": 22.57697,
+                    "nick_name": "test two",
+                    "battery": 65,
+                    "lock_group_id": 3078,
+                    "user_type": 1,
+                    "online": 2,
+                    "grp_role": 1
+                },
+                {
+                    "id": 24,
+                    "imei": "352056090286184",
+                    "course": 350.79,
+                    "local_time": 1574763117,
+                    "longitude": 113.91666833333332,
+                    "device_type": "JW10",
+                    "latitude": 22.576948333333334,
+                    "nick_name": "test one",
+                    "battery": 59,
+                    "lock_group_id": 3078,
+                    "user_type": 1,
+                    "online": 2,
+                    "grp_role": 1
+                },
+                {
+                    "id": 95,
+                    "imei": "1",
+                    "device_type": "\"no type\"",
+                    "nick_name": "Test Engineer",
+                    "user_type": 2,
+                    "online": 2,
+                    "grp_role": 3
+                },
+                {
+                    "id": 125,
+                    "imei": "355172100056017",
+                    "device_type": "JW10",
+                    "nick_name": "test six",
+                    "lock_group_id": 292,
+                    "user_type": 1,
+                    "online": 1,
+                    "grp_role": 1
+                },
+                {
+                    "id": 127,
+                    "imei": "355172100055829",
+                    "device_type": "JW10",
+                    "nick_name": "test five",
+                    "lock_group_id": 424,
+                    "user_type": 1,
+                    "online": 1,
+                    "grp_role": 1
+                },
+                {
+                    "id": 142,
+                    "imei": "352856090286184",
+                    "device_type": "JW10",
+                    "nick_name": "184",
+                    "user_type": 1,
+                    "online": 1,
+                    "grp_role": 1
+                },
+                {
+                    "id": 202,
+                    "imei": "159867799410000",
+                    "device_type": "JW10",
+                    "nick_name": "9999999999",
+                    "lock_group_id": 1604,
+                    "user_type": 1,
+                    "online": 1,
+                    "grp_role": 1
+                },
+                {
+                    "id": 204,
+                    "imei": "868146033002199",
+                    "device_type": "JW10",
+                    "nick_name": "lili",
+                    "user_type": 1,
+                    "online": 1,
+                    "grp_role": 1
+                },
+                {
+                    "id": 206,
+                    "imei": "112233445566778",
+                    "device_type": "JW10",
+                    "nick_name": "lululu",
+                    "user_type": 1,
+                    "online": 1,
+                    "grp_role": 1
+                },
+                {
+                    "id": 208,
+                    "imei": "869979034629936",
+                    "device_type": "JW10",
+                    "nick_name": "936",
+                    "user_type": 1,
+                    "online": 1,
+                    "grp_role": 1
+                },
+                {
+                    "id": 214,
+                    "imei": "865176032824247",
+                    "device_type": "JW10",
+                    "nick_name": "12da",
+                    "lock_group_id": 2038,
+                    "user_type": 1,
+                    "online": 1,
+                    "grp_role": 1
+                }
+            ]
+        },
+        {
+            "gid": 2556,
+            "group_name": "sun",
+            "group_owner": 95,
+            "user_list": [
+                {
+                    "id": 23,
+                    "imei": "352056090286044",
+                    "course": 278.06,
+                    "local_time": 1574760953,
+                    "longitude": 113.916625,
+                    "device_type": "JW10",
+                    "latitude": 22.57697,
+                    "nick_name": "test two",
+                    "battery": 65,
+                    "lock_group_id": 3078,
+                    "user_type": 1,
+                    "online": 2,
+                    "grp_role": 1
+                },
+                {
+                    "id": 24,
+                    "imei": "352056090286184",
+                    "course": 350.79,
+                    "local_time": 1574763117,
+                    "longitude": 113.91666833333332,
+                    "device_type": "JW10",
+                    "latitude": 22.576948333333334,
+                    "nick_name": "test one",
+                    "battery": 59,
+                    "lock_group_id": 3078,
+                    "user_type": 1,
+                    "online": 2,
+                    "grp_role": 1
+                },
+                {
+                    "id": 95,
+                    "imei": "1",
+                    "device_type": "\"no type\"",
+                    "nick_name": "Test Engineer",
+                    "user_type": 2,
+                    "online": 2,
+                    "grp_role": 3
+                },
+                {
+                    "id": 125,
+                    "imei": "355172100056017",
+                    "device_type": "JW10",
+                    "nick_name": "test six",
+                    "lock_group_id": 292,
+                    "user_type": 1,
+                    "online": 1,
+                    "grp_role": 1
+                },
+                {
+                    "id": 127,
+                    "imei": "355172100055829",
+                    "device_type": "JW10",
+                    "nick_name": "test five",
+                    "lock_group_id": 424,
+                    "user_type": 1,
+                    "online": 1,
+                    "grp_role": 1
+                },
+                {
+                    "id": 142,
+                    "imei": "352856090286184",
+                    "device_type": "JW10",
+                    "nick_name": "184",
+                    "user_type": 1,
+                    "online": 1,
+                    "grp_role": 1
+                },
+                {
+                    "id": 202,
+                    "imei": "159867799410000",
+                    "device_type": "JW10",
+                    "nick_name": "9999999999",
+                    "lock_group_id": 1604,
+                    "user_type": 1,
+                    "online": 1,
+                    "grp_role": 1
+                },
+                {
+                    "id": 204,
+                    "imei": "868146033002199",
+                    "device_type": "JW10",
+                    "nick_name": "lili",
+                    "user_type": 1,
+                    "online": 1,
+                    "grp_role": 1
+                },
+                {
+                    "id": 206,
+                    "imei": "112233445566778",
+                    "device_type": "JW10",
+                    "nick_name": "lululu",
+                    "user_type": 1,
+                    "online": 1,
+                    "grp_role": 1
+                },
+                {
+                    "id": 208,
+                    "imei": "869979034629936",
+                    "device_type": "JW10",
+                    "nick_name": "936",
+                    "user_type": 1,
+                    "online": 1,
+                    "grp_role": 1
+                },
+                {
+                    "id": 214,
+                    "imei": "865176032824247",
+                    "device_type": "JW10",
+                    "nick_name": "12da",
+                    "lock_group_id": 2038,
+                    "user_type": 1,
+                    "online": 1,
+                    "grp_role": 1
+                }
+            ]
+        },
+        {
+            "gid": 2558,
+            "group_name": "sunny",
+            "group_owner": 95,
+            "user_list": [
+                {
+                    "id": 23,
+                    "imei": "352056090286044",
+                    "course": 278.06,
+                    "local_time": 1574760953,
+                    "longitude": 113.916625,
+                    "device_type": "JW10",
+                    "latitude": 22.57697,
+                    "nick_name": "test two",
+                    "battery": 65,
+                    "lock_group_id": 3078,
+                    "user_type": 1,
+                    "online": 2,
+                    "grp_role": 1
+                },
+                {
+                    "id": 24,
+                    "imei": "352056090286184",
+                    "course": 350.79,
+                    "local_time": 1574763117,
+                    "longitude": 113.91666833333332,
+                    "device_type": "JW10",
+                    "latitude": 22.576948333333334,
+                    "nick_name": "test one",
+                    "battery": 59,
+                    "lock_group_id": 3078,
+                    "user_type": 1,
+                    "online": 2,
+                    "grp_role": 1
+                },
+                {
+                    "id": 95,
+                    "imei": "1",
+                    "device_type": "\"no type\"",
+                    "nick_name": "Test Engineer",
+                    "user_type": 2,
+                    "online": 2,
+                    "grp_role": 3
+                },
+                {
+                    "id": 125,
+                    "imei": "355172100056017",
+                    "device_type": "JW10",
+                    "nick_name": "test six",
+                    "lock_group_id": 292,
+                    "user_type": 1,
+                    "online": 1,
+                    "grp_role": 1
+                },
+                {
+                    "id": 127,
+                    "imei": "355172100055829",
+                    "device_type": "JW10",
+                    "nick_name": "test five",
+                    "lock_group_id": 424,
+                    "user_type": 1,
+                    "online": 1,
+                    "grp_role": 1
+                },
+                {
+                    "id": 142,
+                    "imei": "352856090286184",
+                    "device_type": "JW10",
+                    "nick_name": "184",
+                    "user_type": 1,
+                    "online": 1,
+                    "grp_role": 1
+                },
+                {
+                    "id": 202,
+                    "imei": "159867799410000",
+                    "device_type": "JW10",
+                    "nick_name": "9999999999",
+                    "lock_group_id": 1604,
+                    "user_type": 1,
+                    "online": 1,
+                    "grp_role": 1
+                },
+                {
+                    "id": 204,
+                    "imei": "868146033002199",
+                    "device_type": "JW10",
+                    "nick_name": "lili",
+                    "user_type": 1,
+                    "online": 1,
+                    "grp_role": 1
+                },
+                {
+                    "id": 206,
+                    "imei": "112233445566778",
+                    "device_type": "JW10",
+                    "nick_name": "lululu",
+                    "user_type": 1,
+                    "online": 1,
+                    "grp_role": 1
+                },
+                {
+                    "id": 208,
+                    "imei": "869979034629936",
+                    "device_type": "JW10",
+                    "nick_name": "936",
+                    "user_type": 1,
+                    "online": 1,
+                    "grp_role": 1
+                },
+                {
+                    "id": 214,
+                    "imei": "865176032824247",
+                    "device_type": "JW10",
+                    "nick_name": "12da",
+                    "lock_group_id": 2038,
+                    "user_type": 1,
+                    "online": 1,
+                    "grp_role": 1
+                }
+            ]
+        },
+        {
+            "gid": 2560,
+            "group_name": "summer",
+            "group_owner": 95,
+            "user_list": [
+                {
+                    "id": 23,
+                    "imei": "352056090286044",
+                    "course": 278.06,
+                    "local_time": 1574760953,
+                    "longitude": 113.916625,
+                    "device_type": "JW10",
+                    "latitude": 22.57697,
+                    "nick_name": "test two",
+                    "battery": 65,
+                    "lock_group_id": 3078,
+                    "user_type": 1,
+                    "online": 2,
+                    "grp_role": 1
+                },
+                {
+                    "id": 24,
+                    "imei": "352056090286184",
+                    "course": 350.79,
+                    "local_time": 1574763117,
+                    "longitude": 113.91666833333332,
+                    "device_type": "JW10",
+                    "latitude": 22.576948333333334,
+                    "nick_name": "test one",
+                    "battery": 59,
+                    "lock_group_id": 3078,
+                    "user_type": 1,
+                    "online": 2,
+                    "grp_role": 1
+                },
+                {
+                    "id": 95,
+                    "imei": "1",
+                    "device_type": "\"no type\"",
+                    "nick_name": "Test Engineer",
+                    "user_type": 2,
+                    "online": 2,
+                    "grp_role": 3
+                }
+            ]
+        },
+        {
+            "gid": 2562,
+            "group_name": "sunniess",
+            "group_owner": 95,
+            "user_list": [
+                {
+                    "id": 23,
+                    "imei": "352056090286044",
+                    "course": 278.06,
+                    "local_time": 1574760953,
+                    "longitude": 113.916625,
+                    "device_type": "JW10",
+                    "latitude": 22.57697,
+                    "nick_name": "test two",
+                    "battery": 65,
+                    "lock_group_id": 3078,
+                    "user_type": 1,
+                    "online": 2,
+                    "grp_role": 1
+                },
+                {
+                    "id": 24,
+                    "imei": "352056090286184",
+                    "course": 350.79,
+                    "local_time": 1574763117,
+                    "longitude": 113.91666833333332,
+                    "device_type": "JW10",
+                    "latitude": 22.576948333333334,
+                    "nick_name": "test one",
+                    "battery": 59,
+                    "lock_group_id": 3078,
+                    "user_type": 1,
+                    "online": 2,
+                    "grp_role": 1
+                },
+                {
+                    "id": 95,
+                    "imei": "1",
+                    "device_type": "\"no type\"",
+                    "nick_name": "Test Engineer",
+                    "user_type": 2,
+                    "online": 2,
+                    "grp_role": 3
+                }
+            ]
+        },
+        {
+            "gid": 3024,
+            "group_name": "test NO.1",
+            "group_owner": 95,
+            "user_list": [
+                {
+                    "id": 23,
+                    "imei": "352056090286044",
+                    "course": 278.06,
+                    "local_time": 1574760953,
+                    "longitude": 113.916625,
+                    "device_type": "JW10",
+                    "latitude": 22.57697,
+                    "nick_name": "test two",
+                    "battery": 65,
+                    "lock_group_id": 3078,
+                    "user_type": 1,
+                    "online": 2,
+                    "grp_role": 1
+                },
+                {
+                    "id": 24,
+                    "imei": "352056090286184",
+                    "course": 350.79,
+                    "local_time": 1574763117,
+                    "longitude": 113.91666833333332,
+                    "device_type": "JW10",
+                    "latitude": 22.576948333333334,
+                    "nick_name": "test one",
+                    "battery": 59,
+                    "lock_group_id": 3078,
+                    "user_type": 1,
+                    "online": 2,
+                    "grp_role": 1
+                },
+                {
+                    "id": 95,
+                    "imei": "1",
+                    "device_type": "\"no type\"",
+                    "nick_name": "Test Engineer",
+                    "user_type": 2,
+                    "online": 2,
+                    "grp_role": 3
+                }
+            ],
+            "status": 1
+        },
+        {
+            "gid": 3026,
+            "group_name": "test NO.2",
+            "group_owner": 95,
+            "user_list": [
+                {
+                    "id": 23,
+                    "imei": "352056090286044",
+                    "course": 278.06,
+                    "local_time": 1574760953,
+                    "longitude": 113.916625,
+                    "device_type": "JW10",
+                    "latitude": 22.57697,
+                    "nick_name": "test two",
+                    "battery": 65,
+                    "lock_group_id": 3078,
+                    "user_type": 1,
+                    "online": 2,
+                    "grp_role": 1
+                },
+                {
+                    "id": 24,
+                    "imei": "352056090286184",
+                    "course": 350.79,
+                    "local_time": 1574763117,
+                    "longitude": 113.91666833333332,
+                    "device_type": "JW10",
+                    "latitude": 22.576948333333334,
+                    "nick_name": "test one",
+                    "battery": 59,
+                    "lock_group_id": 3078,
+                    "user_type": 1,
+                    "online": 2,
+                    "grp_role": 1
+                },
+                {
+                    "id": 95,
+                    "imei": "1",
+                    "device_type": "\"no type\"",
+                    "nick_name": "Test Engineer",
+                    "user_type": 2,
+                    "online": 2,
+                    "grp_role": 3
+                }
+            ],
+            "status": 1
+        },
+        {
+            "gid": 3028,
+            "group_name": "test NO.3",
+            "group_owner": 95,
+            "user_list": [
+                {
+                    "id": 23,
+                    "imei": "352056090286044",
+                    "course": 278.06,
+                    "local_time": 1574760953,
+                    "longitude": 113.916625,
+                    "device_type": "JW10",
+                    "latitude": 22.57697,
+                    "nick_name": "test two",
+                    "battery": 65,
+                    "lock_group_id": 3078,
+                    "user_type": 1,
+                    "online": 2,
+                    "grp_role": 1
+                },
+                {
+                    "id": 24,
+                    "imei": "352056090286184",
+                    "course": 350.79,
+                    "local_time": 1574763117,
+                    "longitude": 113.91666833333332,
+                    "device_type": "JW10",
+                    "latitude": 22.576948333333334,
+                    "nick_name": "test one",
+                    "battery": 59,
+                    "lock_group_id": 3078,
+                    "user_type": 1,
+                    "online": 2,
+                    "grp_role": 1
+                },
+                {
+                    "id": 95,
+                    "imei": "1",
+                    "device_type": "\"no type\"",
+                    "nick_name": "Test Engineer",
+                    "user_type": 2,
+                    "online": 2,
+                    "grp_role": 3
+                },
+                {
+                    "id": 125,
+                    "imei": "355172100056017",
+                    "device_type": "JW10",
+                    "nick_name": "test six",
+                    "lock_group_id": 292,
+                    "user_type": 1,
+                    "online": 1,
+                    "grp_role": 1
+                },
+                {
+                    "id": 127,
+                    "imei": "355172100055829",
+                    "device_type": "JW10",
+                    "nick_name": "test five",
+                    "lock_group_id": 424,
+                    "user_type": 1,
+                    "online": 1,
+                    "grp_role": 1
+                },
+                {
+                    "id": 142,
+                    "imei": "352856090286184",
+                    "device_type": "JW10",
+                    "nick_name": "184",
+                    "user_type": 1,
+                    "online": 1,
+                    "grp_role": 1
+                },
+                {
+                    "id": 202,
+                    "imei": "159867799410000",
+                    "device_type": "JW10",
+                    "nick_name": "9999999999",
+                    "lock_group_id": 1604,
+                    "user_type": 1,
+                    "online": 1,
+                    "grp_role": 1
+                },
+                {
+                    "id": 204,
+                    "imei": "868146033002199",
+                    "device_type": "JW10",
+                    "nick_name": "lili",
+                    "user_type": 1,
+                    "online": 1,
+                    "grp_role": 1
+                },
+                {
+                    "id": 206,
+                    "imei": "112233445566778",
+                    "device_type": "JW10",
+                    "nick_name": "lululu",
+                    "user_type": 1,
+                    "online": 1,
+                    "grp_role": 1
+                },
+                {
+                    "id": 208,
+                    "imei": "869979034629936",
+                    "device_type": "JW10",
+                    "nick_name": "936",
+                    "user_type": 1,
+                    "online": 1,
+                    "grp_role": 1
+                },
+                {
+                    "id": 214,
+                    "imei": "865176032824247",
+                    "device_type": "JW10",
+                    "nick_name": "12da",
+                    "lock_group_id": 2038,
+                    "user_type": 1,
+                    "online": 1,
+                    "grp_role": 1
+                }
+            ],
+            "status": 1
+        },
+        {
+            "gid": 3030,
+            "group_name": "test NO.4",
+            "group_owner": 95,
+            "user_list": [
+                {
+                    "id": 23,
+                    "imei": "352056090286044",
+                    "course": 278.06,
+                    "local_time": 1574760953,
+                    "longitude": 113.916625,
+                    "device_type": "JW10",
+                    "latitude": 22.57697,
+                    "nick_name": "test two",
+                    "battery": 65,
+                    "lock_group_id": 3078,
+                    "user_type": 1,
+                    "online": 2,
+                    "grp_role": 1
+                },
+                {
+                    "id": 24,
+                    "imei": "352056090286184",
+                    "course": 350.79,
+                    "local_time": 1574763117,
+                    "longitude": 113.91666833333332,
+                    "device_type": "JW10",
+                    "latitude": 22.576948333333334,
+                    "nick_name": "test one",
+                    "battery": 59,
+                    "lock_group_id": 3078,
+                    "user_type": 1,
+                    "online": 2,
+                    "grp_role": 1
+                },
+                {
+                    "id": 95,
+                    "imei": "1",
+                    "device_type": "\"no type\"",
+                    "nick_name": "Test Engineer",
+                    "user_type": 2,
+                    "online": 2,
+                    "grp_role": 3
+                },
+                {
+                    "id": 127,
+                    "imei": "355172100055829",
+                    "device_type": "JW10",
+                    "nick_name": "test five",
+                    "lock_group_id": 424,
+                    "user_type": 1,
+                    "online": 1,
+                    "grp_role": 1
+                }
+            ],
+            "status": 1
+        },
+        {
+            "gid": 3032,
+            "group_name": "test NO.5",
+            "group_owner": 95,
+            "user_list": [
+                {
+                    "id": 23,
+                    "imei": "352056090286044",
+                    "course": 278.06,
+                    "local_time": 1574760953,
+                    "longitude": 113.916625,
+                    "device_type": "JW10",
+                    "latitude": 22.57697,
+                    "nick_name": "test two",
+                    "battery": 65,
+                    "lock_group_id": 3078,
+                    "user_type": 1,
+                    "online": 2,
+                    "grp_role": 1
+                },
+                {
+                    "id": 24,
+                    "imei": "352056090286184",
+                    "course": 350.79,
+                    "local_time": 1574763117,
+                    "longitude": 113.91666833333332,
+                    "device_type": "JW10",
+                    "latitude": 22.576948333333334,
+                    "nick_name": "test one",
+                    "battery": 59,
+                    "lock_group_id": 3078,
+                    "user_type": 1,
+                    "online": 2,
+                    "grp_role": 1
+                },
+                {
+                    "id": 95,
+                    "imei": "1",
+                    "device_type": "\"no type\"",
+                    "nick_name": "Test Engineer",
+                    "user_type": 2,
+                    "online": 2,
+                    "grp_role": 3
+                },
+                {
+                    "id": 127,
+                    "imei": "355172100055829",
+                    "device_type": "JW10",
+                    "nick_name": "test five",
+                    "lock_group_id": 424,
+                    "user_type": 1,
+                    "online": 1,
+                    "grp_role": 1
+                }
+            ],
+            "status": 1
+        },
+        {
+            "gid": 3034,
+            "group_name": "fire brigade",
+            "group_owner": 95,
+            "user_list": [
+                {
+                    "id": 23,
+                    "imei": "352056090286044",
+                    "course": 278.06,
+                    "local_time": 1574760953,
+                    "longitude": 113.916625,
+                    "device_type": "JW10",
+                    "latitude": 22.57697,
+                    "nick_name": "test two",
+                    "battery": 65,
+                    "lock_group_id": 3078,
+                    "user_type": 1,
+                    "online": 2,
+                    "grp_role": 1
+                },
+                {
+                    "id": 24,
+                    "imei": "352056090286184",
+                    "course": 350.79,
+                    "local_time": 1574763117,
+                    "longitude": 113.91666833333332,
+                    "device_type": "JW10",
+                    "latitude": 22.576948333333334,
+                    "nick_name": "test one",
+                    "battery": 59,
+                    "lock_group_id": 3078,
+                    "user_type": 1,
+                    "online": 2,
+                    "grp_role": 1
+                },
+                {
+                    "id": 95,
+                    "imei": "1",
+                    "device_type": "\"no type\"",
+                    "nick_name": "Test Engineer",
+                    "user_type": 2,
+                    "online": 2,
+                    "grp_role": 3
+                },
+                {
+                    "id": 127,
+                    "imei": "355172100055829",
+                    "device_type": "JW10",
+                    "nick_name": "test five",
+                    "lock_group_id": 424,
+                    "user_type": 1,
+                    "online": 1,
+                    "grp_role": 1
+                },
+                {
+                    "id": 142,
+                    "imei": "352856090286184",
+                    "device_type": "JW10",
+                    "nick_name": "184",
+                    "user_type": 1,
+                    "online": 1,
+                    "grp_role": 1
+                }
+            ],
+            "status": 1
+        }
+    ],
+    "res": {
+        "code": 200
+    }
+}

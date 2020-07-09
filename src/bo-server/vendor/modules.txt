@@ -1,0 +1,187 @@
+# github.com/360EntSecGroup-Skylar/excelize v1.4.1
+github.com/360EntSecGroup-Skylar/excelize
+# github.com/CanalClient/canal-go v0.0.0-20191011031409-2db66ad8cdb3
+github.com/CanalClient/canal-go/client
+github.com/CanalClient/canal-go/protocol
+# github.com/DataDog/zstd v1.3.6-0.20190409195224-796139022798
+github.com/DataDog/zstd
+# github.com/FZambia/sentinel v1.0.0
+github.com/FZambia/sentinel
+# github.com/Shopify/sarama v1.23.1
+github.com/Shopify/sarama
+# github.com/ceshihao/ratelimiter v0.0.0-20190523025428-602ec2aa595f
+github.com/ceshihao/ratelimiter/tokenbucket
+# github.com/davecgh/go-spew v1.1.1
+github.com/davecgh/go-spew/spew
+# github.com/eapache/go-resiliency v1.1.0
+github.com/eapache/go-resiliency/breaker
+# github.com/eapache/go-xerial-snappy v0.0.0-20180814174437-776d5712da21
+github.com/eapache/go-xerial-snappy
+# github.com/eapache/queue v1.1.0
+github.com/eapache/queue
+# github.com/go-ini/ini v1.42.0
+github.com/go-ini/ini
+# github.com/go-sql-driver/mysql v1.4.1
+github.com/go-sql-driver/mysql
+# github.com/gogo/protobuf v1.2.1
+github.com/gogo/protobuf/proto
+# github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b
+github.com/golang/glog
+# github.com/golang/protobuf v1.3.2
+github.com/golang/protobuf/proto
+github.com/golang/protobuf/jsonpb
+github.com/golang/protobuf/protoc-gen-go/generator
+github.com/golang/protobuf/ptypes/any
+github.com/golang/protobuf/ptypes/duration
+github.com/golang/protobuf/ptypes/timestamp
+github.com/golang/protobuf/ptypes/wrappers
+github.com/golang/protobuf/ptypes
+github.com/golang/protobuf/ptypes/struct
+github.com/golang/protobuf/protoc-gen-go/descriptor
+github.com/golang/protobuf/protoc-gen-go/generator/internal/remap
+github.com/golang/protobuf/protoc-gen-go/plugin
+# github.com/golang/snappy v0.0.1
+github.com/golang/snappy
+# github.com/gomodule/redigo v2.0.0+incompatible
+github.com/gomodule/redigo/redis
+github.com/gomodule/redigo/internal
+# github.com/grpc-ecosystem/go-grpc-middleware v1.1.0
+github.com/grpc-ecosystem/go-grpc-middleware
+github.com/grpc-ecosystem/go-grpc-middleware/ratelimit
+# github.com/grpc-ecosystem/grpc-gateway v1.9.0
+github.com/grpc-ecosystem/grpc-gateway/runtime
+github.com/grpc-ecosystem/grpc-gateway/utilities
+github.com/grpc-ecosystem/grpc-gateway/internal
+# github.com/hashicorp/go-uuid v1.0.1
+github.com/hashicorp/go-uuid
+# github.com/jcmturner/gofork v0.0.0-20190328161633-dc7c13fece03
+github.com/jcmturner/gofork/encoding/asn1
+github.com/jcmturner/gofork/x/crypto/pbkdf2
+# github.com/jordan-wright/email v0.0.0-20190819015918-041e0cec78b0
+github.com/jordan-wright/email
+# github.com/juju/ratelimit v1.0.1
+github.com/juju/ratelimit
+# github.com/konsorten/go-windows-terminal-sequences v1.0.1
+github.com/konsorten/go-windows-terminal-sequences
+# github.com/lestrrat/go-file-rotatelogs v0.0.0-20180223000712-d3151e2a480f
+github.com/lestrrat/go-file-rotatelogs
+# github.com/lestrrat/go-strftime v0.0.0-20180220042222-ba3bf9c1d042
+github.com/lestrrat/go-strftime
+# github.com/mohae/deepcopy v0.0.0-20170929034955-c48cc78d4826
+github.com/mohae/deepcopy
+# github.com/orcaman/concurrent-map v0.0.0-20190826125027-8c72a8bb44f6
+github.com/orcaman/concurrent-map
+# github.com/panjf2000/ants v1.0.0
+github.com/panjf2000/ants
+# github.com/pierrec/lz4 v2.0.5+incompatible
+github.com/pierrec/lz4
+github.com/pierrec/lz4/internal/xxh32
+# github.com/pkg/errors v0.8.1
+github.com/pkg/errors
+# github.com/rcrowley/go-metrics v0.0.0-20181016184325-3113b8401b8a
+github.com/rcrowley/go-metrics
+# github.com/rifflock/lfshook v0.0.0-20180920164130-b9218ef580f5
+github.com/rifflock/lfshook
+# github.com/samuel/go-zookeeper v0.0.0-20180130194729-c4fab1ac1bec
+github.com/samuel/go-zookeeper/zk
+# github.com/sirupsen/logrus v1.4.2
+github.com/sirupsen/logrus
+# github.com/smartwalle/dbs v1.0.0
+github.com/smartwalle/dbs
+# golang.org/x/crypto v0.0.0-20190404164418-38d8ce5564a5 => github.com/golang/crypto v0.0.0-20190513172903-22d7a77e9e5f
+golang.org/x/crypto/md4
+golang.org/x/crypto/pbkdf2
+# golang.org/x/net v0.0.0-20190503192946-f4e77d36d62c => github.com/golang/net v0.0.0-20190522155817-f3200d17e092
+golang.org/x/net/context
+golang.org/x/net/trace
+golang.org/x/net/proxy
+golang.org/x/net/internal/timeseries
+golang.org/x/net/http2
+golang.org/x/net/http2/hpack
+golang.org/x/net/internal/socks
+golang.org/x/net/http/httpguts
+golang.org/x/net/idna
+# golang.org/x/sys v0.0.0-20190422165155-953cdadca894 => github.com/golang/sys v0.0.0-20190526052359-791d8a0f4d09
+golang.org/x/sys/unix
+# golang.org/x/text v0.3.1-0.20180807135948-17ff2d5776d2 => github.com/golang/text v0.3.2
+golang.org/x/text/secure/bidirule
+golang.org/x/text/unicode/bidi
+golang.org/x/text/unicode/norm
+golang.org/x/text/transform
+# google.golang.org/appengine v1.4.0 => github.com/golang/appengine v1.6.0
+google.golang.org/appengine/cloudsql
+# google.golang.org/genproto v0.0.0-20190819201941-24fa4b261c55 => github.com/google/go-genproto v0.0.0-20190522204451-c2c4e71fbf69
+google.golang.org/genproto/googleapis/api/httpbody
+google.golang.org/genproto/protobuf/field_mask
+google.golang.org/genproto/googleapis/rpc/status
+# google.golang.org/grpc v1.19.0 => github.com/grpc/grpc-go v1.21.0
+google.golang.org/grpc
+google.golang.org/grpc/codes
+google.golang.org/grpc/grpclog
+google.golang.org/grpc/status
+google.golang.org/grpc/metadata
+google.golang.org/grpc/connectivity
+google.golang.org/grpc/peer
+google.golang.org/grpc/balancer
+google.golang.org/grpc/balancer/roundrobin
+google.golang.org/grpc/credentials
+google.golang.org/grpc/encoding
+google.golang.org/grpc/encoding/proto
+google.golang.org/grpc/internal
+google.golang.org/grpc/internal/backoff
+google.golang.org/grpc/internal/balancerload
+google.golang.org/grpc/internal/binarylog
+google.golang.org/grpc/internal/channelz
+google.golang.org/grpc/internal/envconfig
+google.golang.org/grpc/internal/grpcrand
+google.golang.org/grpc/internal/grpcsync
+google.golang.org/grpc/internal/transport
+google.golang.org/grpc/keepalive
+google.golang.org/grpc/naming
+google.golang.org/grpc/resolver
+google.golang.org/grpc/resolver/dns
+google.golang.org/grpc/resolver/passthrough
+google.golang.org/grpc/stats
+google.golang.org/grpc/tap
+google.golang.org/grpc/balancer/base
+google.golang.org/grpc/credentials/internal
+google.golang.org/grpc/binarylog/grpc_binarylog_v1
+google.golang.org/grpc/internal/syscall
+# gopkg.in/jcmturner/aescts.v1 v1.0.1
+gopkg.in/jcmturner/aescts.v1
+# gopkg.in/jcmturner/dnsutils.v1 v1.0.1
+gopkg.in/jcmturner/dnsutils.v1
+# gopkg.in/jcmturner/gokrb5.v7 v7.2.3
+gopkg.in/jcmturner/gokrb5.v7/asn1tools
+gopkg.in/jcmturner/gokrb5.v7/client
+gopkg.in/jcmturner/gokrb5.v7/config
+gopkg.in/jcmturner/gokrb5.v7/credentials
+gopkg.in/jcmturner/gokrb5.v7/gssapi
+gopkg.in/jcmturner/gokrb5.v7/iana/chksumtype
+gopkg.in/jcmturner/gokrb5.v7/iana/keyusage
+gopkg.in/jcmturner/gokrb5.v7/keytab
+gopkg.in/jcmturner/gokrb5.v7/messages
+gopkg.in/jcmturner/gokrb5.v7/types
+gopkg.in/jcmturner/gokrb5.v7/crypto
+gopkg.in/jcmturner/gokrb5.v7/crypto/etype
+gopkg.in/jcmturner/gokrb5.v7/iana/errorcode
+gopkg.in/jcmturner/gokrb5.v7/iana/flags
+gopkg.in/jcmturner/gokrb5.v7/iana/nametype
+gopkg.in/jcmturner/gokrb5.v7/iana/patype
+gopkg.in/jcmturner/gokrb5.v7/kadmin
+gopkg.in/jcmturner/gokrb5.v7/krberror
+gopkg.in/jcmturner/gokrb5.v7/iana/etypeID
+gopkg.in/jcmturner/gokrb5.v7/iana
+gopkg.in/jcmturner/gokrb5.v7/iana/adtype
+gopkg.in/jcmturner/gokrb5.v7/iana/asnAppTag
+gopkg.in/jcmturner/gokrb5.v7/iana/msgtype
+gopkg.in/jcmturner/gokrb5.v7/pac
+gopkg.in/jcmturner/gokrb5.v7/iana/addrtype
+gopkg.in/jcmturner/gokrb5.v7/crypto/common
+gopkg.in/jcmturner/gokrb5.v7/crypto/rfc3961
+gopkg.in/jcmturner/gokrb5.v7/crypto/rfc3962
+gopkg.in/jcmturner/gokrb5.v7/crypto/rfc4757
+gopkg.in/jcmturner/gokrb5.v7/crypto/rfc8009
+# gopkg.in/jcmturner/rpc.v1 v1.1.0
+gopkg.in/jcmturner/rpc.v1/mstypes
+gopkg.in/jcmturner/rpc.v1/ndr

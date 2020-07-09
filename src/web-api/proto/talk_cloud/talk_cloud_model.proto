@@ -1,0 +1,196 @@
+syntax = "proto3";
+
+package talk_cloud;
+
+// 群组数据模型
+message Group {
+    // 群组Id
+    int32 id = 1;
+
+    // 群组名称
+    string group_name = 2;
+
+    // 群组所属调度员的Id
+    int32 account_id = 3;
+
+    // 群组状态
+    int32 status = 4;
+}
+
+// 成员/app用户/device
+message Member {
+    // 成员Id
+    int32 id = 1;
+
+    // 设备Imei号
+    string iMei = 2;
+
+    // 设备账号
+    string userName = 3;
+
+    // 设备昵称
+    string nickName = 4;
+
+    // 设备密码
+    string pwd = 5;
+
+    // 用户类型
+    int32 userType = 6;
+
+    // 所属调度员的Id
+    int32 accountId = 7;
+
+    // 上级用户的Id
+    string parentId = 8;
+
+    // 0  离线 , 1 在线
+    int32 online = 9;
+
+    // 用户锁定群组Id
+    int32 lockGroupId = 10;
+
+    // 用户在群中的角色
+    int32 GRoleType = 11;
+
+    // 是否开启日志 0是关闭，1是开启
+    int32 StartLog = 12;
+}
+
+// 结果信息
+message Result {
+    // 错误码, 200表示成功，其他表示失败
+    int64 code = 1;
+
+    // 错误消息
+    string msg = 2;
+}
+
+// wifi数据模型
+message Wifi {
+    // wifi的强度
+    int32 level = 1;
+
+    // wifi的BSSID
+    string bssId = 2;
+
+    // 经度
+    double longitude = 3;
+
+    // 纬度
+    double latitude = 4;
+
+    // wifi在表中记录的自增Id app应该用不到
+    int32 id = 5;
+
+    // wifi描述信息
+    string des = 6;
+}
+
+message GroupInfo {
+    int32 gid = 1;
+    string group_name = 2;
+    repeated int32 group_manager = 3; // 群管理员id
+    int32 group_owner = 6; // 群主
+    repeated DeviceInfo user_list = 4; // 群里的成员
+    bool isExist = 5; // 该用户是否默认在这个组
+    int32 status = 7; // 临时组还是普通组
+}
+
+// 设备信息的model，用到的接口有：导入设备、更新设备和web定时获取设备信息
+message DeviceInfo {
+    // 设备Id
+    int32 id = 1;
+
+    // 设备Imei号
+    string imei = 2;
+
+    // 设备账号
+    string user_name = 3;
+
+    // 设备密码
+    string password = 4;
+
+    // 设备所属调度员/经销商的Id
+    int32 account_id = 5;
+
+    // 创建时间
+    string create_time = 6;
+
+    // 最后一次登录的时间
+    string LL_time = 7;
+
+    // 改变的时间
+    string change_time = 8;
+
+    // 航向
+    float course = 9;
+
+    // 定位时间
+    uint64 local_time = 10;
+
+    // 经度
+    double longitude = 11;
+
+    // 设备型号 eg：JW10、T28
+    string device_type = 12;
+
+    // 纬度
+    double latitude = 13;
+
+    // 速度
+    float speed = 14;
+
+    // 设备激活时间
+    string active_time = 15;
+
+    // 设备销售时间
+    string sale_time = 16;
+
+    // 设备昵称
+    string nick_name = 17;
+
+    // 设备电量
+    int32 battery = 18;
+
+    // Wifi描述信息，eg：wifi是哪栋楼第几层
+    string wifi_description = 19;
+
+    int32 lock_group_id = 20;
+
+    int32 user_type = 21; // 用户类型， 2是管理员，1是app或者对讲机
+
+    int32 online = 22; // 1是离线 2是在线 3是在线并且janus在当前组
+
+    int32 grp_role = 23; // 3 群主; 2 群管理员; 1 普通群成员;
+
+    bool isFriend = 24; // 是否是好友
+
+    int32 charge = 25; // 是否在充电 1是充电 0是不在充电
+
+    string start_log = 26; // 该设备打开记录日志, 0是不打开，1是打开
+
+    int32 user_id = 27; // 消息来源那个设备的id
+
+    int32 user_status = 28; // 消息来源那个设备那时候的状态
+
+    int32 in_link_quality = 29; // 通话质量
+
+    int32 in_media_link_quality = 30; // 通话质量
+
+    int32 out_link_quality = 31; // 通话质量
+
+    int32 out_media_link_quality = 32; // 通话质量
+
+    int32 rtt = 33; // 通话质量参数
+}
+
+// 移除某个组
+message GroupDelReq {
+    int32 uid = 1;
+    int32 role_type = 2;
+    int32 gid = 3;
+}
+
+message GroupDelRsp {
+    Result res = 1;
+}

@@ -1,0 +1,37 @@
+[redis_config]
+Host = "10.0.10.28"
+port = 6779
+password = "redis@linux"
+sentinel_addr = ""
+
+timeout = 10
+# 数据库0~15, 默认值: 0
+db = 0
+# 最大空闲数
+max_idle = 100
+# 空闲超时时间, 默认值: 0
+idle_timeout = 10
+# 最大连接数
+max_active = 500
+
+[kafka]
+#    [[kafka.consumers]]
+#        consumer_addr = "10.0.10.28:9092"
+#        consumer_group = "group_1"
+#        consumer_topic = "state_machine"
+#        consumer_partition = 0
+    [[kafka.consumers]]
+        consumer_addr = "10.0.17.194:9092"
+        consumer_group = "group_2"
+        consumer_topic = "state_machine"
+        consumer_partition = 0
+
+    [[kafka.producers]]
+    producer_addr = "10.0.17.194:9092"
+    producer_topic = "state_machine_ack"
+
+[common]
+time_layout = "2006-01-02 15:04:05"
+log_level = "debug"
+pprof_addr = "127.0.0.1:6777"
+worker_count = 10

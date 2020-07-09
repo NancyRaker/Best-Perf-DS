@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+    <title>管理调度员服务地址</title>
+
+</head>
+
+<body style="text-align:center;">
+<h1 align="center">opser</h1>
+<hr><p>
+<span>输入调度员的登录名：</span>
+<label for="account_name_input"></label><input type="text" id="account_name_input" value="laohu002">
+<input type="button" style="background-color:#87CEFA" onclick="queryReleaseServerAddrByAccount()"
+       value="获取线上环境调度员登录地址"/>
+<input type="button" style="background-color:#FF8C00" onclick="queryDevServerAddrByAccount()" value="获取测试环境调度员登录地址"/>
+&nbsp;&nbsp;// tips: 输入调度员id，获取该调度员名下所有的设备的日志开启情况。
+<br>
+<table id="server_addr_table" border="1" width="60%" align="center">
+    <tr>
+        <th> 目前应该访问的服务地址</th>
+        <th> 选择切换的服务地址</th>
+        <th width="50%"> 返回的数据</th>
+    </tr>
+    <tr></tr>
+</table>
+</body>
+
+<script type="text/javascript">
+    var usrOpsServer = "";
+    const devBaseUrl = "https://dev.yunptt.com:19998";  // dev环境
+    // const releaseBaseUrl = "http://www.yunptt.com:20000"; // 线上环境（东莞）获取调度员登录的服务地址base url地址
+    const releaseDongGuanBaseUrl = "https://dg182.yunptt.com:20001"; // 线上环境（东莞）获取调度员登录的服务地址base url地址
+    const releaseMicroBaseUrl = "https://hk213.yunptt.com:20001"; // 线上环境（东莞）获取调度员登录的服务地址base url地址
+
+    const DEV = "dev";
+    const RELEASE = "release";
+
+    // 获取线上环境的设备列表
+    function queryReleaseServerAddrByAccount() {
+        usrOpsServer = RELEASE;
+        queryServerAddrByAccount(releaseDongGuanBaseUrl + "/server/dispatcher/addr")
+    }
+
+    // 获取测试环境的设备列表
+    function queryDevServerAddrByAccount() {
+        usrOpsServer = DEV;
+        queryServerAddrByAccount(devBaseUrl + "/server/dispatcher/addr")
+    }
+
+    // 获取设备列表
+    function queryServerAddrByAccount(url) {
+        // 获取账户id
+        let account_name = document.getElementById('account_name_input').value;
+
+        // 发送请求
+        let data = sendRequest(url + "?account-name=" + account_name, "GET");
+        let server_list = data.server;
+        console.log(server_list);
+
+        if (server_list == null) {
+            alert("this account no login server addr!")
+            return
+        }
+
+        // 获取展示的list元素
+        let serverAddrTable = $("#server_addr_table");
+        serverAddrTable[0].deleteRow(0);
+        serverAddrTable[0].deleteRow(0);
+
+        // 把table head 配置好
+        serverAddrTable.append(
+            '<tr>' +
+            '<th> 目前应该访问的服务地址</th>' +
+            '<th> 选择切换的服务地址</th>' +
+            '<th width="50%"> 返回的数据</th>' +
+            '</tr>');
+
+        let server_button;// = '<input type="button" style="background-color:#00FA9A" onclick="changeServerAddr(this.parentElement)" value= "微软云" />';
+        let row = '<tr>';
+        row += makeHidden(account_name);
+        if (server_list.janus.addr.ip === "23.101.8.213") {
+            row += makeHidden(2); // 服务的代号
+            row += '<th>' + server_list.janus.addr.ip + ' (微软云服务器)</th>';
+            server_button = '<input type="button" style="background-color:#00FA9A" onclick="changeServerAddr(this.parentElement.parentElement)" value= "东莞" />';
+        } else if (server_list.janus.addr.ip === "121.14.149.182") {
+            row += makeHidden(1); // 服务的代号
+            row += '<th>' + server_list.janus.addr.ip + ' (东莞服务器)</th>';
+            server_button = '<input type="button" style="background-color:#00FA9A" onclick="changeServerAddr(this.parentElement.parentElement)" value= "微软云"/>';
+        } else if (server_list.janus.addr.ip === "113.108.62.206") {
+            row += makeHidden(1); // 服务的代号
+            row += makeHidden(2); // 服务的代号
+            row += '<th>' + server_list.janus.addr.ip + ' (测试服务器)</th>';
+            server_button = '<input type="button" style="background-color:#00FA9A" onclick="changeServerAddr(this.parentElement.parentElement)" value= "微软云"/>';
+            server_button = '<input type="button" style="background-color:#00FA9A" onclick="changeServerAddr(this.parentElement.parentElement)" value= "东莞"/>';
+        } else {
+            alert("error");
+        }
+        row += '<th>' + server_button + '</th>' +
+            '<th width="50%">' + JSON.stringify(data, null, 2) + '</th>' +
+            '</tr>';
+
+        serverAddrTable.append(row);
+    }
+
+
+    // 制作隐藏域
+    function makeHidden(value) {
+        return '<input type="hidden" value=' + value + '>'
+    }
+
+
+    function changeServerAddr(node) {
+        console.log("will change node :" + node);
+        let account_name = node.firstElementChild.getAttribute("value");
+        node.removeChild(node.firstElementChild);
+        let server_code = node.firstElementChild.getAttribute("value");
+
+        console.log("will change param: " + account_name + server_code);
+
+        // 更新设备登陆
+        changeDispatcherServerAddr(account_name, server_code)
+    }
+
+    // 发送post请求，更新设备信息
+    function changeDispatcherServerAddr(account_name, server_code) {
+        let baseUrl = "";
+        if (usrOpsServer === DEV) {
+            console.log("dev");
+            baseUrl = devBaseUrl;
+            let resp = sendRequest(
+                baseUrl + "/server/change?server-code=" + server_code + "&account-name=" + account_name,
+                "GET");
+            alert(resp.res);
+        } else if (usrOpsServer === RELEASE) {
+            console.log("release");
+            baseUrl = releaseDongGuanBaseUrl;
+            resp = sendRequest(
+                releaseDongGuanBaseUrl + "/server/change?server-code=" + server_code + "&account-name=" + account_name,
+                "GET");
+            alert(resp.res);
+            let res = sendRequest(
+                releaseMicroBaseUrl + "/server/change?server-code=" + server_code + "&account-name=" + account_name,
+                "GET");
+        } else {
+            alert("ops find error")
+        }
+
+        // 更新一下列表
+        queryServerAddrByAccount(baseUrl + "/server/dispatcher/addr")
+    }
+
+
+    // 查询线上服务器的日志
+    function queryReleaseServerLogByIMei() {
+        queryLogByIMei(logBaseUrl + "/dg")
+    }
+
+    // 查询测试服务器的日志
+    function queryDevServerLogByIMei() {
+        queryLogByIMei(logBaseUrl + "/dev")
+    }
+
+    // 通过imei查询日志
+    function queryLogByIMei(url) {
+        // 1. 获取imei 355172100056157 id: 62
+        let imei = document.getElementById('imei_input').value;
+
+        // 2. 发送请求
+        let data = sendRequest(url + "/" + imei, "GET");
+        let log_list = data.log_list;
+        if (log_list.length === 0) {
+            alert("this device no log!")
+        }
+        // 3. 获取展示的list元素
+        let listElement = document.getElementById('list');
+        listElement.innerHTML = "";
+        for (i = 0; i < log_list.length; i++) {
+            let obj = document.createElement("li");
+            obj.innerHTML = "<a href='" + log_list[i].path_url + "'>" + log_list[i].create_time + "</a>";
+            listElement.appendChild(obj);
+        }
+    }
+
+    // 发送http请求
+    function sendRequest(url, method, sendData) {
+        console.log(url, method, sendData);
+        let request = new XMLHttpRequest();
+        request.open(method, url, false);
+        if (method === "GET") {
+            request.send();
+        } else if (method === "POST") {
+            request.send(JSON.stringify(sendData));
+        } else {
+            alert("send request error");
+            return
+        }
+        return JSON.parse(request.responseText);
+    }
+</script>
+</html>
