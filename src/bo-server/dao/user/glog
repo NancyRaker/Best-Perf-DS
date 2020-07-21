@@ -1,2 +1,0 @@
-time="2019-06-10 16:57:37.888298100" level=debug msg="query out: &{dc:0xc00014c000 releaseConn:0x5758d0 rowsi:0xc00015c050 cancel:<nil> closeStmt:<nil> closemu:{w:{state:0 sema:0} writerSem:0 readerSem:0 readerCount:0 readerWait:0} closed:false lasterr:<nil> lastcols:[]}"
-time="2019-06-10 16:57:51.020049200" level=debug msg="query out: &{dc:0xc000170000 releaseConn:0x5758d0 rowsi:0xc0000b2af0 cancel:<nil> closeStmt:<nil> closemu:{w:{state:0 sema:0} writerSem:0 readerSem:0 readerCount:0 readerWait:0} closed:false lasterr:<nil> lastcols:[]}"
